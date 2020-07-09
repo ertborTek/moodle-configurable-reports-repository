@@ -16,6 +16,7 @@ SELECT
 	pzu.last_name AS "Last Name",
 	pzu.email AS "E-mail",
 	pzu.student_id AS "Student ID",
+	pzu.student_number AS "Student Number",
 	pzu.campus AS "Campus",
 	pzuo.name AS "Organization",
 	pzuo.type AS "Organization Type",

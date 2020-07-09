@@ -1,10 +1,10 @@
 -- -----------------------------------------------------------------------------
--- Course Completions for Be Fire Smart!™ College Edition (with custom fields)
+-- Course Completions for All Courses (with custom fields)
 -- Context: Site
--- Name: Course Completers (Be Fire Smart!™ College Edition)†
+-- Name: Course Completers †
 -- Summary:
--- 	<h4>Students completing <i>Be Fire Smart!™ College Edition</i></h4>
--- 	<h5>This includes the current and prior editions of this course.</h5>
+-- 	<h4>Students Completing any Course</h4>
+-- 	<h5>This includes current and prior editions of any course.</h5>
 -- 	<br>
 -- 	<p>To see completions for a specific time period, apply a <b>Start</b> and <b>End</b> date.</p>
 -- Global: No
@@ -16,7 +16,7 @@ SELECT
 	pzu.last_name AS "Last Name",
 	pzu.email AS "E-mail",
 	pzu.student_id AS "Student ID",
-	pzu.student_number AS "Student Number",
+	pzu.student_id AS "Student Number",
 	pzu.campus AS "Campus",
 	pzuo.name AS "Organization",
 	pzuo.type AS "Organization Type",
@@ -51,7 +51,7 @@ ON pzu.user_id = pzuo.user_fk
 
 WHERE TRUE
 AND pzu.institution = REGEXP_REPLACE("%%WWWROOT%%", "https{0,1}://([^.]+)\\.[^.]+\\.[^.]+(/[^/]+)*", "\\1")
-AND c.idnumber REGEXP '^103(-[0-9]{4}){0,1}(-[0-9]{2}){0,1}$'
+AND c.idnumber REGEXP '^[0-9]+'
 AND cc.timecompleted IS NOT NULL
 AND u.deleted = 0
 AND u.email NOT LIKE "%@alivetek.com"
